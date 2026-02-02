@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>배경색 다시</title>
+  <style>
+  #container{
+      width: 500px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    ul{
+      display: flex;
+      justify-content: space-between;
+      padding-left: 0;
+    }
+    ul li{
+      /* width: 130px; */
+      /* padding: 10px; */
+      border: 1px solid #ccc;
+      list-style: none;
+      margin: 5px;
+      text-align: center;
+    }
+    a{
+      text-decoration: none;
+      color: black;
+      width: 130px;
+      display: block;
+      margin: 5px;
+      padding: 5px;
+    }
+    #result{
+      width: 500px;
+      height: 300px;
+      border: 1px solid #ccc;
+    }
+    </style>
+</head>
+<body>
+  <div id="container">
+    <h1>배경색 다시</h1>
+    <ul>
+      <li><a href="#" onclick="changeBg('red')">red</a></li>
+      <li><a href="#" onclick="changeBg('black')">black</a></li>
+      <li><a href="#" onclick="changeBg('gray')">gray</a></li>
+    </ul>
+    <div id="result"></div>
+  </div>
+  <script>
+    function changeBg(color){
+      let result = document.querySelector('#result');
+      result.style.backgroundColor = color;
+    }
+  </script>
+</body>
+</html>

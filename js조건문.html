@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>조건문</title>
+</head>
+
+<body>
+  <h1>조건문</h1>
+  <script>
+    //조건문 : 조건에 만족하는 경우(true)
+    // 만족하지 않는 경우(false)에 따라 명령을 다르게 처리하는 명령
+    let num = 10;
+    if (num > 0) {
+      console.log(`${num}은 양수입니다`);
+    } else if (num == 0) {
+      console.log(`${num}은 Zero입니다`);
+    } else {
+      console.log(`${num}은 음수입니다`);
+    }
+    console.log('종료');
+
+    //num이 홀수면 홀수라고 출력 -> 수를 2로 나눈 나머지 1
+    //num이 짝수면 짝수라고 출력 -> 수를 2로 나눈 나머지 0
+    num = 55464;
+    if (num % 2 == 0) {
+      console.log(`${num}은 짝수입니다`);
+    } else {
+      console.log(`${num}은 홀수입니다`);
+    }
+    //점수가 90점 이상이면 장학생
+    //점수가 80~90점미만이면 우수생
+    //나머진 보통
+    let score = 83;
+    if (score >= 90) {
+      console.log(`${score}점은 장학생입니다`);
+    } else if (score >= 80) {
+      console.log(`${score}점은 우수생입니다`);
+    } else {
+      console.log(`${score}점은 보통입니다`);
+    }
+
+    //성적평가 90이상 A
+    //성적평가 80이상 B
+    //성적평가 70이상 C
+    //성적평가 60이상 D
+    //성적평가 그외 F
+    score = 98;
+    if (score >= 90) {
+      console.log(`${score}점은 A입니다`);
+    }else if (score >= 80) {
+      console.log(`${score}점은 B입니다`);
+    } else if (score >= 70) {
+      console.log(`${score}점은 C입니다`);
+    } else if (score >= 60) {
+      console.log(`${score}점은 D입니다`);
+    } else {
+      console.log(`${score}점은 F입니다`);
+    }
+    //switch문으로 변경
+    score = 30;
+    let grade = '';
+    switch(parseInt(score / 10)){
+      case 10 : grade = 'A';break;
+      case 9 : grade = 'A';break;
+      case 8 : grade = 'B';break;
+      case 7 : grade = 'C';break;
+      case 6 : grade = 'D';break;
+      default : grade = 'F';
+    }
+    console.log(`${score} : ${grade}`)
+
+
+    //국어점수, 영어점수, 수학점수
+    //총점, 평균
+    //국어점수가 90점 이상이고, 평균이 80점이면 장학생으로 선발하세
+    let kor = 100;
+    let eng = 23;
+    let math = 68;
+    let total = kor + eng + math;
+    let avg = parseInt(total / 3);
+    if(kor >= 90 && avg >= 80){
+      console.log(`${kor}>=90점, ${avg}>=80점 => 장학생입니다`);
+    }else{
+      console.log(`${kor}>=90점, ${avg}>=80점 => 장학생 선발 안됨`);
+    }
+    console.log('성적처리 완료');
+
+    //삼항연산자 : 항이 3개
+    //(조건) ? true : false
+    num = 20;
+    num % 2 == 0 ? alert('짝수') : alert('홀수');
+
+    num = 20;
+    let result = num % 2 == 0 ? '짝수' : '홀수';
+    console.log(`삼항연산자 이용 : ${result}`)
+
+    //switch : 조건이 여러 개인 경우 값에 따라 처리하는 명령
+    console.log('-----switch ----');
+    switch(num % 2){
+      case 0 : 
+        console.log('짝수');
+        break
+      case 1 : 
+        console.log('홀수');
+        break
+      default : 
+        console.log('숫자가 아닙니다');
+        break
+    }
+  </script>
+</body>
+
+</html>

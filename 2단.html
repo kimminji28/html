@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2단</title>
+  <!-- <link rel="stylesheet" href="css/2단.css"> -->
+   <style>
+    #container{
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      width: 90%;
+      margin: 0 auto;
+      display: grid;
+      /* grid-template-columns: repeat(5,1fr);
+      grid-template-rows: auto; */
+      grid-template-areas: 
+      "hd hd hd hd hd"
+      "st st st st as"
+      "ft ft ft ft ft";
+      gap: 5px;
+    }
+    header{
+      background: yellow;
+      /* grid-column: 1/-1; */
+      grid-area: hd;
+    }
+    section{
+      /* grid-column: 1/5; */
+      grid-area: st;
+      background: purple;
+      display: flex;
+      flex-wrap: wrap;
+      /* justify-content: space-around; */
+      justify-content: space-evenly;
+    }
+    section h3{
+      width: 100%;
+    }
+    section p{
+      width: 30%;
+      border: 1px solid #f36363;
+    }
+    aside{
+      /* grid-column: 5/-1; */
+      grid-area: as;
+      background: green;
+    }
+    footer{
+      /* grid-column: 1/-1; */
+      grid-area: ft;
+      background: blue;
+    }
+   </style>
+</head>
+<body>
+  <div id="container">
+    <header>
+      <h1>사이트 제목</h1>
+    </header>
+    <section>
+      <h3>본문</h3>
+      <p>내용 입력1</p>
+      <p>내용 입력2</p>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione, impedit?</p>
+    </section>
+    <aside>
+      <h3>사이드 바</h3>
+      <p>광고1</p>
+      <p>광고2</p>
+    </aside>
+    <footer>
+      <h3>푸터</h3>
+      <p>저작권 정보, 연락처 등</p>
+    </footer>
+  </div>
+</body>
+</html>

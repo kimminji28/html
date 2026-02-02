@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>내장객체</title>
+</head>
+<body>
+  <h1>처음에 미리 정해져있는 객체_내장객체</h1>
+  <script>
+    //내장객체 : 미리 정의되어있는 객체
+    //날짜 데이터
+    let today = new Date();
+    console.log(today);
+
+   let year = today.getFullYear(); //get : 빼내오는거
+   let month = today.getMonth() + 1;
+   let date = today.getDate();
+   let day = today.getDay();
+  
+   let week = '';
+   switch(day){
+    case 0 : week = '일';break;
+    case 1 : week = '월';break;
+    case 2 : week = '화';break;
+    case 3 : week = '수';break;
+    case 4 : week = '목';break;
+    case 5 : week = '금';break;
+    case 6 : week = '토';
+   }
+   console.log(`${year}년 ${month}월 ${date}일 ${week}요일`);
+   console.log(new Date(1));
+   console.log(today.getTime());
+   console.log(new Date(1769481903813));
+   console.log(today.toLocaleDateString());
+   console.log(today.toLocaleTimeString());
+   console.log(today.toLocaleString());
+
+  // console.log(-----초 계산-----);
+  //크리스마스까지 며칠 남았냐
+  let xmas = new Date(`2026-12-25`);
+  let remain = xmas - today;
+  remain = Math.floor(remain / (1000*60*60*24));
+  console.log(`${remain}일 남았어요`);
+  //수업 시작한지 며칠 지났냐
+  let startday = new Date(`2025-12-30`);
+  let passday = today - startday;
+  passday = Math.floor(passday / (1000*60*60*24));
+  console.log(`${passday}일 지났어요`);
+  
+  console.log(Math.max(5, 7, 9, 4))
+  console.log(Math.min(2, 7, 6, 4))
+  console.log(Math.ceil(-77.45))
+  console.log(Math.floor(-77.45))
+
+  //수학객체_객체를 생성하지 않고 사용
+  let ramdNum = Math.floor(Math.random() * 81) + 20;
+  console.log(ramdNum);
+  console.log(Math.PI); //속성(객체를 만들지않고 값만 가져옴)
+  console.log(Math.SQRT2); //속성
+  console.log(Math.sqrt(16)); //메소드(실행해서 가져옴)
+
+  //로또번호 만들기
+  // let lotto = Math.floor(Math.random() * 45) +1;
+  // console.log(lotto);
+  
+  for(let i=0; i<5; i++){
+    let lottos = [];
+      for(let j=0; j<6; j++){
+        let ran = Math.floor(Math.random() * 45) +1;
+      if(lottos.indexOf(ran) == -1){        
+        lottos.push(ran);
+      }else{
+        j--;
+      }
+    }
+    console.log(lottos.join('\t'));
+  }
+
+//   console.log(`-----화일문-----`)
+//    for(let i=1; i<6; i++){
+//     let lottos = [];
+//     while(lottos.length < 6){
+//     let ran = Math.floor(Math.random() * 45) +1;
+//     if(lottos.indexOf(ran) == -1){        
+//         lottos.push(ran);
+//       }
+//       console.log(lottos.join('\t'));
+//     }
+//   }
+
+  //고정 소수점 표현 가능
+  let numaa = 273.210332248954;
+  console.log(numaa.toFixed(3));
+
+  //문자열 객체
+  let str = "asasiklfjasfjalfjlkasjfskaaskfaskfjklasfjlasfjkjklsajfksajfksaflkajfls";
+  console.log(str.length + '글자');
+
+  str = '1A34b 7c9z';
+  let string = '';
+  // document.write(str.charAt(8));
+  // document.write(str.charCodeAt(2));
+  // document.write(String.fromCharCode(65));
+  // document.write(str.concat('XYZ'));
+  // document.write(str.indexOf('b'));
+  // document.write(str.match('b'));
+  // document.write(str.replace('4b', 'b5'));
+  // document.write(str.search('y'));
+  // document.write(str.slice(3,7));
+  // document.write(str.split(''));
+  // document.write(str.substr(3,7));
+  // document.write(str.substring(3,7));
+  // document.write(str.toLowerCase());
+  // document.write(str.toUpperCase());
+  // document.write(str.trim());
+
+
+  //주민번호를 이용해서 나이와 성별 출력
+  //1이면 남자, 2면 여자
+  //3이면 2000이후 남자, 4면 2000년 이후 여자
+  //5면 귀화한 남자, 6이면 귀화한 여자
+  //나이 계산
+  //'나이는 00살, 성별은 00입니다'출력
+  
+  // if(idNum.charAt(7) == 1){
+  //   console.log('남자입니다.');
+  // }else if(idNum.charAt(7) == 2){
+  //   console.log('여자입니다.');
+  // }else if(idNum.charAt(7) == 3){
+  //   console.log('2000년생 이후 남자입니다.');
+  // }else if(idNum.charAt(7) == 4){
+  //   console.log('2000년생 이후 여자입니다.');
+  // }else if(idNum.charAt(7) == 5){
+  //   console.log('귀화한 남자입니다.');
+  // }else{
+  //   console.log('귀화한 여자입니다.');
+  // }
+
+  let idNum = "971225-1234567"
+  let gender = '';
+  switch(parseInt(idNum.charAt(7))){ //Number도 사용 가능
+    case 1 : gender = '남자';break;
+    case 2 : gender = '여자';break;
+    case 3 : gender = '2000년 이후 여자';break;
+    case 4 : gender = '2000년 이후 여자';break;
+    case 5 : gender = '귀화한 남자';break;
+    case 6 : gender = '귀화한 여자'
+  }
+  
+  //나이 1번 방법
+  let age = 26 - idNum.substr(0,2);
+  if(age < 0 ){
+    age = 26 + 100 - idNum.substr(0,2);
+  }
+  console.log(`나이는 ${age}살이고, 성별은 ${gender}입니다.`)
+
+  // //나이 2번 방법
+  // let currYear = 26
+  // age = currYear - idNum.substr(0,2);
+  // if(age < 0 ){
+  //   age = currYear + 100 - idNum.substr(0,2);
+  // }
+  
+  </script>
+</body>
+</html>

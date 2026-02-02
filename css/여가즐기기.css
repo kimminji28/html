@@ -1,0 +1,30 @@
+#container{
+  width: 1208px;
+  border: 1px solid #ccc;
+  text-align: center;
+  overflow: hidden;
+  margin: 0 auto;
+  /* display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1rem; */
+}
+header{
+  color: #aaa;
+}
+.travel-card{
+  width: 250px;
+  height: 360px;
+  border: 3px solid #ccc;
+  border-radius: 5%;
+  padding: 13px;
+  text-align: center;
+  margin-top: 30px;
+  float: left;
+  margin: 10px;
+}
+img{
+  border-radius: 50%;
+  width: 140px;
+  height: 140px;
+  margin: 20px;
+}

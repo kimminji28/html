@@ -1,0 +1,237 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>첫페이지</title>
+    <link href="css/index.css" rel="stylesheet">
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Asta+Sans:wght@300..800&display=swap" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+      h1{
+        width: 300px;
+        height: 300px;
+        border: 1px solid #999;
+        text-align: center;
+        line-height: 300px; /* 글자 세로 가운데 정렬 */
+        text-shadow: 2px 2px 2px #1d1c1c;
+        color: #fff;
+        box-shadow: 0px 1px 17px 12px #555 inset;
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+      }
+    </style>
+</head>
+<body>
+  <div id="container">
+  <h1>
+    <i class="fa-solid fa-house fa-shake" style="color: #14ee76;"></i>
+    나의 첫 페이지</h1>
+  <h2> <ruby>學習<rt>학습</rt></ruby></h2>
+  <h3><abbr title="엉덩이를 뜨겁게">엉뜨</abbr></h3>
+  <h4>H<sub>2</sub>0</h4>
+  <h5>y<sup>2</sup> = x<sup>2</sup> + 10</h5>
+  <header>
+    <mark>header</mark></marl> : 회사로고, 검색창, 메뉴 포함
+    <nav>
+      nav : 메뉴 => 웹페이지가 보여줄 내용을 항목별로 묶어둔 곳
+      <ul id="menu">
+        <li><a href="#list">😒목록만들기</a></li>
+        <li><a href="#table">😶표만들기</a></li>
+        <li><a href="#media">🙃멀티미디어</a></li>
+        <li><a href="#link">하이퍼링크</a></li>
+      </ul>
+    </nav>
+  </header>
+  <hr>
+  <main>
+    main : 보여줄 중심 내용
+    - 한 페이지에 한 번만 쓸 수 있음
+    <section>
+      section : 주제별로 내용을 묶어서 보여주는 곳
+      - 반드시 제목이 필요
+      <article>
+        <p><b><i>article</i></b> : 신문 기사 한꼭지, 독립적으로 떼어낼 수 있는 덩어리</p>
+        <p>p:문단 편집</p>
+        <pre>
+pre :                           웹사이트 코드 소스를 입력된 그대로 표시할 때 사용
+          웹브라우저가 해석하지 않고,
+          입력된 그대로 표시
+        </pre>
+        <p><strong><em><q>Lorem, ipsum</q></em></strong> dolor<br>
+          sit amet consectetur
+          adipisicing elit.
+          Odio tempora consequuntur quia ipsum voluptas,
+          cupiditate sapiente!
+          <div style="background-color: rgb(207, 145, 145);">Voluptatem adipisci a deleniti eveniet provident odio!</div>
+          <span style="color: blue;"><q>Ut</q></span> dolores ad
+          perspiciatis quos id ullam!</p>
+          <blockquote cite="www.naver.com">Lorem ipsum, dolor sit amet consectetur
+            adipisicing elit. Eos, laboriosam!</blockquote>
+      </article>
+    </section>
+    <section>
+      <h3 id="list">목록 만들기</h3>
+      <h4>좋아하는 과일 목록</h4>
+      <ul class="float">
+        <li>귤</li>
+        <li>바나나</li>
+        <li class="right">사과</li> 
+      </ul>
+      <h4>코끼리 냉장고의 넣기</h4>
+      <ol type="I" start="3">
+        <li>냉장고를 문을 연다</li>
+        <li>코끼리를 들어서 냉장고에 넣는다</li>
+        <li class="right">냉장고 문을 닫는다</li>
+      </ol>
+      <h4>웹페이지 제작</h4>
+      <dl>
+        <dt class="accent">HTML</dt>
+        <dd>웹페이지의 내용 편집</dd>
+        <dd>하이퍼텍스트 지원</dd>
+        <dt class="accent">CSS</dt>
+        <dd>웹페이지의 디자인을 담당</dd>
+        <dd>스타일 시트</dd>
+        <dt class="accent">javasceript</dt>
+        <dd>사용자의 동작에 반응하는 작업</dd>
+      </dl>
+    </section>
+    <a href="#menu">처음으로</a>
+    <section>
+      <h3 id="table">표 만들기</h3>
+      <table>
+        <caption>선물용과 가정용 상품 구성</caption>
+        <colgroup>
+        <col style="background-color: pink;">
+        <col>
+        <col span="2" style="background-color: azure;">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>용도</th>
+            <th>중량</th>
+            <th>개수</th>
+            <th>가격</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="2">선물용</td>
+            <td>3kg</td>
+            <td>11~16과</td>
+            <td>35,000원</td>
+          </tr>
+          <tr>
+            <td>5kg</td>
+            <td>18~26과</td>
+            <td>52,000원</td>
+          </tr>
+          <tr>
+            <td rowspan="2">가정용</td>
+            <td>3kg</td>
+            <td>11~16과</td>
+            <td>30,000원</td>
+          </tr>
+          <tr>
+            <td>5kg</td>
+            <td>18~26과</td>
+            <td>47,000원</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="4">제품 구매 시점에 따라 가격이 변동될 수 있습니다</td>
+          </tr>
+        </tfoot>
+      </table>
+      <br>
+      <table border="1">
+        <caption>파라다이스 객실</caption>
+        <thead>
+          <tr>
+            <td>방이름</td>
+            <td>대상</td>
+            <td>크기</td>
+            <td>가격</td>
+          </tr>
+        </thead>
+          <tbody>
+            <tr>
+              <td>핑크방</td>
+              <td>여성</td>
+              <td rowspan="3">4인실</td>
+              <td rowspan="4">1인 20,000원</td>
+            </tr>
+            <tr>
+              <td rowspan="2">보라방</td>
+              <td>동성</td>
+            </tr>
+            <tr>
+              <td>가족1팀</td>
+            </tr>
+            <tr>
+              <td>그린방</td>
+              <td>-</td>
+              <td>2인실</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="4">바깥채 전체를 렌트합니다</td>
+            </tr>
+          </tfoot>
+      </table>
+    </section>
+    <a href="#menu">처음으로</a>
+    <section>
+      <h3 id="media">이미지 삽입</h3>
+      <figure>
+        <img src="img/레드향.jpg" alt="레드향" width="200" height="200">
+        <img src="img/봄.jpg" alt="봄" width="200" height="200">
+        <img src="img/사과.jpg" alt="사과" width="200" height="200">
+        <figcaption>상큼한 이미지 모음</figcaption>
+      </figure>
+      <h3>오디오 삽입</h3>
+      <audio src="media/미소속에비친그대.mp3" controls></audio>
+      <h3>비디오 삽입</h3>
+      <video src="media/사랑한다사랑해.mp4" width="400" height="300" controls autoplay muted></video>
+      <h3>외부파일 삽입</h3>
+      <object data="media/1. HTML(기본구조텍스트목록표).pdf" width="100%" height="500"></object>
+      <embed src="media/1. HTML(기본구조텍스트목록표).pdf" width="100%" height="500">
+      <iframe src="media/1. HTML(기본구조텍스트목록표).pdf" width="100%" height="500"></iframe>
+      <iframe width="560" height="315"
+      src="https://www.youtube.com/embed/NBUxLQI2on0?si=lx3sBR8VOmb0t69W"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen></iframe>
+    </section>
+    <a href="#menu">처음으로</a>
+    <section id="hylink">
+      <h3 id="link">하이퍼링크 삽입</h3>
+      <a href="https://www.naver.com" target="_blank">네이버</a>
+      <a href="수습국원모집.html" target="_blank">
+      <a href="수습국원모집.html" target="_blank>"></a>
+        <img src="img/봄.jpg" width="100" height="100" title="모집광고로 이동">
+        <a href="img/레드향.jpg" download>파일 다운로드</a>
+      </a>
+      <a href="수습국원모집.html" target="_blank"></a>
+    </section>
+      <a href="#menu">처음으로</a>
+      </a>
+  </main>
+  <aside>
+    aside : 로그인 창, 광고
+    - 본문과 상관없는 내용이 들어있는 영역
+  </aside>
+  <hr>
+  <footer>
+    footer : 회사정보, 개인정보 보호 방침, sns 연결
+  </footer>
+  <div id="top">
+    <a href="#menu">top</a>
+  </div>
+  </div>
+</body>
+  </html>

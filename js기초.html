@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>js기초</title>
+</head>
+<body>
+  <h1>자바스크립트 기초 문법</h1>
+  <script>
+    //출력문
+    //알림창 출력
+    alert('hello javascript');
+    //문서에 출력
+    //객체인 document가 바디에 접근해서(접근=.) 쓴다 (write) 
+    document.write('<h3>hello javascript</h3>');
+    //콘솔창에 출력
+    console.log('hello javascript');
+    //본인의 나이를 계산해서 알림창으로 출력
+    //나이 = 현재년도 - 태어난 년도
+    //나이 계산해서 저장 -> 변수 선언, 변수이름
+    let year = 2026;
+    let birthday = 1999; 
+    let age = year - birthday;
+    //알림창에 출력
+    alert('내 나이는' + age + '살입니다');
+
+    //입력문 (프롬프트)
+    let name = prompt('이름을 입력하세요');
+    console.log(name);
+
+    //숫자하나를 입력 받아서 100을 더해서 출력하세요
+    let su = prompt('숫자 입력');
+    let result = Number(su) + 100;
+    console.log(result);
+
+    //확인창 (컨펌)
+    let check = confirm('수락하시겠습니까?');
+    document.write(check);
+  </script>
+</body>
+</html>

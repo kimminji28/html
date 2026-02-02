@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>폼</title>
+  <style>
+    #container{
+      width: 600px;
+      margin: 0 auto;
+    }
+    form label{
+      width: 100px;
+      display: inline-block;
+    }
+    .redtext{
+      color: red;
+    }
+    input:read-only{
+      background-color: #eee;
+    }
+    /* 라디오 버튼, 체크박스가 선택이 됐을 때, 레이블 글자색을 파란색으로 지정 */
+    input:checked +span{
+      color: blue;
+    }
+    /* input:enabled{
+      background: yellow;
+    } */
+    /* input:disabled{
+      background: #f00;
+    } */
+     .float label{
+      width: 100px;
+      float: left;
+     }
+     li{
+      list-style: none;
+     }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <h1>폼 만들기</h1>
+    <form action="login.php" method="post" name="login">
+      <fieldset>
+        <legend>로그인 정보</legend>
+        <ul>
+          <li>
+            <label for="u_id">아이디<span class="redtext">*</span></label>
+            <input type="text" id="u_id" name="u_id" size="10" maxlength="5" value="abc" autofocus required>
+          </li>
+          <li>
+            <label for="password">비밀번호<span class="redtext">*</span></label>
+            <input type="password" id="pw" name="pw" required>
+          </li>
+          <li>
+            <label for="pwc">비밀번호확인<span class="redtext">*</span></label>
+            <input type="password" id="pwc" name="pwc" required>
+          </li>
+        </ul>
+      </fieldset>
+      <fieldset>
+        <legend>데이터 체크</legend>
+        <ul>
+          <li>
+            <label for="search">검색창</label>
+            <input type="search" id="search" name="search" value="에베베" disabled>
+          </li>
+          <li>
+            <label for="url">홈페이지</label>
+            <input type="url" id="url" name="url" value="yedam.com" readonly>
+          </li>
+          <li>
+            <label for="email">이메일</label>
+            <input type="email" id="email" name="email">
+          </li>
+          <li>
+            <label for="Tel">전화번호</label>
+            <input type="tel" id="tel" name="tel" placeholder="'-'제외하고 숫자만 입력하세요.">
+          </li>
+        </ul>
+      </fieldset>
+      <fieldset>
+        <legend>선택하기</legend>
+        <ul>
+          <li>
+            <label>SNS</label>
+            <label>
+              <input type="radio" name="sns" value="instar">
+              <span>인스타그램</span>
+            </label>
+            <label><input type="radio" name="sns" value="facebook" checked><span>페이스북</span></label>
+            <label><input type="radio" name="sns" value="x"><span>X</span></label>
+          </li>
+          <li>
+            <label>좋아하는색</label>
+            <label><input type="checkbox" name="color" value="red" checked><span>빨강</span></label>
+            <label><input type="checkbox" name="color" value="blue"><span>파랑</span></label>
+            <label><input type="checkbox" name="color" value="pink"><span>분홍</span></label>
+          </li>
+          <li>
+            <label for="file">파일전송</label>
+            <input type="file" id="file" name="file">
+          </li>
+          <li>
+            <label for="sel_color">색선택</label>
+            <input type="color" id="sel_color" name="sel_color">
+          </li>
+        </ul>
+      </fieldset>
+      <fieldset>
+        <legend>숫자 입력</legend>
+        <ul>
+          <li>
+            <label for="number">스핀박스</label>
+            <input type="number" id="number" name="number" min="0" max="10" value="1" step="2">
+          </li>
+          <li>
+            <label for="range">슬라이더</label>
+            <input type="range" id="range" name="range" min="0" max="10" value="1" step="2">
+          </li>
+        </ul>
+      </fieldset>
+      <fieldset>
+        <legend>날짜데이터</legend>
+        <ul>
+          <li>
+            <label for="date">년월일</label>
+            <input type="date" id="date" name="date">
+          </li>
+          <label for="month">월일</label>
+            <input type="month" id="month" name="month">
+            <li>
+            <label for="week">년/주</label>
+            <input type="week" id="week" name="week">
+            </li>
+            <li>
+            <label for="datetime">년월일시</label>
+            <input type="datetime-local" id="datetime" name="datetime">
+            </li>
+        </ul>
+      </fieldset>
+      <fieldset class="float">
+        <legend>기타 입력태그</legend>
+        <ul>
+          <li>
+            <label for="memo">메모</label>
+            <textarea name="memo" id="memo" cols="50" rows="5" placeholder="자기소개 간략히 적어주세요."></textarea>
+          </li>
+          <li>
+            <label for="gongji">공지사항</label>
+            <textarea name="gongji" id="gongji" cols="50" rows="5" readonly>
+공지사항
+  1. 내일은 평가가 있어요.(7~8교시)
+  2. 결석하지 마세요.
+  3. 결석을 하거나 60점 이하는 재시험이 있어요.
+  4. 재시험은 80점이 만점이고, 8교시 이후 남아서 시험을 봅니다.
+            </textarea>
+          </li>
+          <li>
+            <label>색상선택</label>
+            <select id="select">
+              <optgroup label="따뜻한 색">
+                <option value="red">빨강</option>
+                <option value="orange">주황</option>
+                <option value="yellow">노랑</option>
+              </optgroup>
+              <optgroup label="차가운 색">
+              <option value="green">초록</option>
+              <option value="blue" selected>파랑</option>
+              <option value="gray">회색</option>
+              </optgroup>
+            </select>
+          </li>
+          <li>
+            <label for="datalist">sns</label>
+            <input type="text" id="datalist" list="d_list">
+            <datalist id="d_list">
+              <option value="instar">인스타그램</option>
+              <option value="X">엑스</option>
+              <option value="facebook">페이스북</option>
+            </datalist>
+          </li>
+        </ul>
+      </fieldset>
+      <fieldset>
+        <input type="submit" value="전송버튼">
+        <input type="reset" value="취소버튼">
+        <input type="button" value="창열기" onclick="window.open()">
+        <br>
+        <button type="submit">전송버튼</button>
+        <button type="reset">취소버튼</button>
+        <button type="button" onclick="window.open()">창열기</button>
+      </fieldset>
+    </form>
+  </div>
+</body>
+</html>

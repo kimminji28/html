@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>도전문제</title>
+</head>
+<body>
+  <h1>도전문제</h1>
+  <script>
+    //제품 객체 생성자 함수
+    function product(name, weight, price){
+      this.name = name,
+      this.weight = weight,
+      this.price = price
+    }
+    
+    product.prototype.calculate = function(w){ //외부에서 무게가 들어옴
+      return w / this.weight * this.price
+    }
+
+    let g = prompt('몇 g 드릴까요?')
+    let sam = new product('삼겹살', 100, 1690)
+    let gal = new product('갈비살', 100, 1890)
+
+    let price = sam.calculate(g)
+    document.write(`<p>${sam.name} 가격은 ${g}g당 ${price}원입니다</p>`)
+
+    price = gal.calculate(g)
+    document.write(`<p>${gal.name} 가격은 ${g}g당 ${price}원입니다</p>`)
+  </script>
+</body>
+</html>

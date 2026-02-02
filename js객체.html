@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>js객체</title>
+</head>
+<body>
+  <h1>객체(objext) 수제품(유일)</h1>
+  <script>
+    //객체 : 하나의 변수에 다양한 형태의 자료를 저장할 수 있는 자료구조
+    //데이터는 키(key)와 값(value)으로 표현
+    //데이터 구성 : 속성 + 메소드(기능)
+    let person = {
+      name : '홍길동',
+      age : 25,
+      job : 'programmer',
+      eat : function(food){ //food : 매개변수_함수 외부에 데이터를 전달하기 위한 변수 
+        console.log(food + '를(을) 먹어요');
+      }
+    }
+    //객체 속성 추가
+    person.tel = '010-1234-5678';
+    person.age = 35; //값 수정;
+    //객체의 메소드 추가
+    person.run = function(){
+      console.log(`${this.name}님이 달립니다.`);
+    }
+    //메소드 실행
+    person.run();
+
+    //객체 전체 내용 출력 반복문
+    console.log('객체 전체 내용 출력 반복문');
+    for(let key in person){
+      console.log(`person 객체의 key=${key}, value=${person[key]}`);
+    }
+    //객체의 속성/메소드 삭제
+    delete person.age;
+    delete person.run;
+    console.log(`----삭제 후 출력----`);
+    console.log(person);
+
+    //객체 데이터 가져오기 : 키로 가져옴
+    console.log(person);
+    console.log(person.name);
+    console.log(person.eat);
+    console.log(person.eat('피자'));
+
+    //데이터 타입 확인하기
+    console.log(typeof(person));
+    console.log(typeof(25));
+    console.log(typeof('25'));
+    console.log(typeof(true));
+    console.log(typeof(null));
+    console.log(typeof(undefined));
+    console.log(typeof(colors));
+
+    //템플릿 문자
+    let age = 25;
+    console.log('내 나이는 ' + age + '세입니다');
+    console.log(`내 나이는 10년 후에 ${age + 10}세입니다`);
+
+    //자료형 변환
+    let input = prompt('숫자를 입력하세요');
+    let num = Number(input);
+    console.log(`input : ${input}, num : ${num} => ${input + num}`);
+    console.log(`input : ${input}, num : ${num} => ${input - num}`);
+    console.log(`input : ${input}, num : ${num} => ${num + num}`);
+
+    //연산자
+    console.log(`2의 3승은 ${2**3}`);
+    console.log(`num = ${num}, ${num}을 3으로 나눈 나머지는 ${num % 3}`);
+    console.log(`num = ${num}, ${num}에 1을 증가한 값은 ${++num}`);
+    console.log(`num = ${num}`);
+  </script>
+</body>
+</html>

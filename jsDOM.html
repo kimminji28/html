@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM</title>
+  <style>
+    #hide{
+      /* display: none; */
+    }
+    img{
+      width: 200px;
+      height: 200px;
+    }
+  </style>
+</head>
+<body>
+  <h1>문서객체모델(DOM)</h1>
+  <div class="show">
+    <h3>보이는 텍스트</h3>
+    <p id="hide">숨기는 텍스트</p>
+  </div>
+  <ul>
+    <li class="list">클래스1</li>
+    <li class="list">클래스2</li>
+    <li class="list">클래스3</li>
+    <li class="list">클래스4</li>
+  </ul>
+  <img id="imgsrc" src="img/뽀야미.jpg" alt="뽀야미">
+  <script>
+    //문서객체모델 다루기
+    //문서 객체 가져오기
+    let id = document.querySelector(`#hide`);
+    console.log(id);
+    id.innerHTML = '<a href="index.html">내용수정</a>';
+
+    let list = document.querySelectorAll('.list');
+    console.log(list);
+
+    let list1 = document.querySelector('li');
+    console.log(list1);
+
+    //태그 안에 있는 내용 가져오기
+    let content1 = document.querySelector('.show').innerHTML;//태그+텍스트 출력 (수정용)
+    let content2 = document.querySelector('.show').innerText; //보이는 텍스트만 출력
+    let content3 = document.querySelector('.show').textContent; //입력된 텍스트 그대로 출력
+    console.log(content1);
+    console.log(content2);
+    console.log(content3);
+
+    //이미지 변경
+    let imgsrc = document.querySelector('#imgsrc');
+    // imgsrc.src = 'img/애플.jpg';
+    imgsrc.setAttribute('src','img/부케.jpg');
+    //스타일 변경
+    imgsrc.style.borderRadius = '50%'
+    //요소 삭제
+    // imgsrc.remove();
+
+    //표준이벤트 처리
+    imgsrc.addEventListener('mouseover', function(){
+      imgsrc.setAttribute('src', 'img/맹구눈물.jpg');
+    });
+    
+    imgsrc.addEventListener('mouseout', function(){
+      imgsrc.setAttribute('src', 'img/부케.jpg');
+    });
+
+    //이벤트 전파(부모 + 자식 : 둘 다 이벤트 있을 때)
+    //부모 -> 자식 (캡쳐)
+    //자식 -> 부모 (버블링)
+    let p = document.querySelector('.show'); //캡쳐
+    p.addEventListener('click', function(){
+      alert('부모 이벤트 실행');
+    }, false);
+
+    id.addEventListener('click', function(){ //버블링
+      alert('자식 이벤트 실행');
+      event.stopPropagation(); //부모야 걸리적거리지마_전파중지 그럼 자식만 실행
+    }, false);
+  </script>
+</body>
+</html>

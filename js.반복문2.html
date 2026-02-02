@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>반복문2</title>
+</head>
+<body>
+  <h1>반복문2</h1>
+  <script>
+    //while 반복문 : 횟수보다 조건을 체크해서 반복할 때 사용
+    //while(조건){실행문}
+    //1에서 10까지 합을 구하기
+    // let su = 0; //1부터 10
+    // let sum = 0; //합
+    // while(su < 5){ //조건
+    //   su++
+    //   sum += su; //실행문
+    //   console.log(`${su} -> ${sum}`);
+    // }
+    // console.log(`마지막 수 = ${su} -> ${sum} `)
+
+    //합이 20을 넘는 순간의 su와 sum을 출력
+    let su = 0;
+    let sum = 0;
+    while(true){
+    su++;
+    sum += su;
+    console.log(`${su} -> ${sum}`);
+    if(sum >20) break;
+  }
+  console.log(`마지막 수 = ${su} -> ${sum} `)
+
+  // let su = 0;
+  //   let sum = 0;
+  //   while(sum < 20){
+  //   su++;
+  //   sum += su;
+  //   console.log(`${su} -> ${sum}`);
+  // }
+  // console.log(`마지막 수 = ${su} -> ${sum} `)
+  
+  //do~while()
+  //무조건 1번 실행 후 조건 체크
+  //5에서 10까지의 짝수값
+  su = 5;
+  sum = 0;
+  do{
+    if(su % 2 == 0) sum += su;
+    console.log(`${su} -> ${sum}`);
+    su++;
+  }while(su <= 10);
+
+  //숫자 맞추기
+  //무작위 수 발생(난수) - 1에서 50까지 수
+  //수학객체 : parseInt(Math.randam() * 50) + 1
+  //반복문
+  //수 입력 받기(prompt)
+  //비교 - 난수 == 입력값 ==> 축하합니다 - 탈출 
+  //비교 - 난수 > 입력값 => up하세요 
+  //비교 - 난수 < 입력값 => down하세요 
+
+  let com = parseInt(Math.random() * 50 +1);
+  console.log(com);
+  let count = 0;
+  while(true){
+    su = prompt('수를 입력하세요')
+    count++
+    if(com == su){
+      alert(`${count}번 정답입니다`);
+      break;
+    }else if(com > su){
+      alert('UP하세요');
+    }else{
+      alert('Down하세요');
+    }
+    if(count >= 10){
+      alert('실패! 분발하세요.')
+      break;
+    }
+  }
+  alert('게임종료');
+  </script>
+</body>
+</html>

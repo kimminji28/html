@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>함수</title>
+  <style>
+    #event{
+      width: 300px;
+      margin: 0 auto;
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+    img{
+      width: 300px;
+      height: 300px;
+    }
+    #desc{
+      display: none;
+    }
+    button{
+      cursor: pointer;
+    }
+
+  </style>
+  <link href="css/성적표.css" rel="stylesheet">
+</head>
+<body>
+  <h1>함수</h1>
+  <button id="btn" onclick="whenclick()">알림창 띄우기</button>
+  <div id="event">
+    <img src="img/맹구 감동jpg.jpg" alt="맹구">
+    <button type="button" id="openBtn">상세설명보기</button>
+    <div id="desc">
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+        Vitae maxime expedita tempore vel explicabo impedit ea eligendi placeat
+        esse alias aperiam, sint voluptate officia consequatur nihil cumque. Corrupti,
+        distinctio accusamus.</p>
+        <button type="button" id="closeBtn">상세설명닫기</button>
+    </div>
+  </div>
+  <script src="js성적표.js"></script>
+  <script>
+    //이벤트 : 웹문서 안에서 사용자의 동작
+    //이벤트 걸기 => 실행문(함수)
+    //버튼에 클릭 이벤트가 걸리면 알림창 띄우기
+    // let btn = document.querySelector('#btn');
+    // btn.onclick = whenclick;
+
+    function whenclick(){
+      alert('버튼이 클릭되었습니다.')
+    }
+
+    //버튼 가져오기
+    let openBtn = document.querySelector('#openBtn');
+    let closeBtn = document.querySelector('#closeBtn');
+    let caption = document.querySelector('#desc');
+
+    openBtn.onclick = function(){
+      caption.style.display = 'block';
+      openBtn.style.display = 'none';
+    }
+
+    closeBtn.onclick = function(){
+      caption.style.display = 'none'
+      openBtn.style.display = 'block'
+    }
+    //함수 : 특정한 기능을 하는 명령어 집합
+    // //함수 정의 : 함수의 내용을 만들어 놓는 것
+    // //함수 호출 : 함수 실행
+    // //*스코프(유효범위) : 변수의 사용 범위
+    // var a = 20;
+    // let script = 30;
+    // let result = 999;
+    // //함수 정의
+    // function sum(n){
+    //   let result = 0;
+    //   for(let i=1; i<=n; i++){
+    //     result += i;
+    //   }
+    //   return result;
+    // }
+    // //함수 실행(호출)
+    // console.log(sum(5));
+    // console.log(result);
+
+    // //min에서 max까지 합을 구하는 함수 정의
+    // // let min = 5;
+    // // let max = 10;
+    // result = 0;
+    // //함수 정의
+    // function sum2(a,b){
+    //   for(let i=a; i<=b; i++){
+    //     result += i;
+    //   }
+    //   return result;
+    // }
+    // //함수 호출 = 결과 출력
+    // result = sum2(1, 10);
+    // console.log(result)
+
+
+    // // result = 0;
+    // //함수 정의
+    // function sum2(start=0, end=0){
+    //   let result = 0;
+    //   for(let i=start; i<=end; i++){
+    //     result += i;
+    //   }
+    //   return result;
+    // }
+    // //함수 호출 = 결과 출력
+    // result2 = sum2(1,2);  
+    // result2 = sum2(1,2);  
+    // console.log(result2)
+
+
+    // // result = 0;
+    // //함수 호출 = 결과 출력
+    // // result2 = sum2(1,2);  
+    // result2 = sum2(42,72);  
+    // console.log(result2)
+    // //함수 정의
+    // function sum2(start=0, end=0){
+    //   let result = 0;
+    //   for(let i=start; i<=end; i++){
+    //     result += i;
+    //   }
+    //   return result;
+    // }
+
+    // //익명함수 : 이름이 없는 함수 => 변수에 저장
+    // const plus = function(a,b){
+    //   return `${a} + ${b} = ${a + b}`;
+    // }
+    // console.log(plus(100,200));
+
+    // //즉시실행 함수
+    // result = (function(a,b){
+    //   return `${a} - ${b} = ${a - b}`;
+    // })(300,100)
+    // console.log(result);
+
+    // //결과로 함수가 전달_순서대로 실행시키려고 함수 안에 함수 사용==콜백 함수
+    // result = (function(){
+    //   return function(a, b){
+    //   return `${a} - ${b} = ${a - b}`;
+    //   } 
+    // })()
+    // console.log(result(500, 200));
+
+    // //콜백함수 : 함수 매개변수의 값으로 전달되는 함수
+    // //실행순서가 있는 경우 사용 (함수안에 함수있고 함수안의 함수있고)
+    // //커피 주문(함수)이 있을 때 커피 만들어주기(함수)
+    // //커피완성 함수
+    // //선언함수
+    // // function done(coffee){
+    // //   console.log(`${coffee} 준비완료`);
+    // // }
+
+    // //익명함수
+    // // const done = function (coffee){
+    // //   console.log(`${coffee} 준비완료`);
+    // // }
+
+    // //화살표 함수 (function : =>) 간략하게 표현하기 위함
+    // //단, 익명함수만 화살표로 변경 가능
+    // const done = (coffee) => {
+    //   console.log(`${coffee} 준비완료`);
+    // }
+
+    // //커피 주문 함수
+    // function order(coffee, callback){
+    //   console.log(`${coffee} 주문 접수`);
+    //   setTimeout(function(){
+    //     callback(coffee);
+    //   }, 2000) //1000단위가 초
+    // }
+    // order(`아메리카노`, done);
+    // order(`바닐라라떼`, done);
+    // order(`복숭아이스티`, done);
+
+    // //펼침연산자(...변수명)
+    // //배열의 합
+    // let nums = [10,20,30,40,50,60,70];
+   
+    // function sum3(x,...etc){
+    //    let sum3 = 0;
+    //    //합구하기
+    //   for(let i=0; i<etc.length; i++){
+    //     sum3 += etc[i];
+    //   }
+    //   //결과리턴
+    //   return x + sum3;
+    // }
+    // console.log(`배열의 합 = ${sum3(...nums)}`)
+
+  </script>
+</body>
+</html>

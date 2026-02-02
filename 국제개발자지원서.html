@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>국제 개발자 지원서</title>
+  <style>
+    #container{
+      width: 600px;
+      margin: 0 auto;
+      border: 3px solid #aaa;
+      padding: 30px;
+    }
+    .abc label{
+      width: 100px;
+      display: inline-block;
+    }
+    .bluetext{
+      color: blue;
+    }
+    fieldset{
+      border: none;
+    }
+    li{
+      list-style: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <h1>국제 개발자 지원서</h1>
+    <P>HTML, CSS, javascrip에 대한 기술적 이해와 경험이 있는 분을 찾습니다.</P>
+    <hr>
+    <form action="name.php" method="post" name="name">
+    <fieldset class="abc">
+      <legend><span class="bluetext">개인정보</span></legend>
+      <ul>
+        <li>
+          <label for="name" id="name">이름</label>
+          <input type="text" id="name" name="name" placeholder="공백 없이 입력하세요">
+        </li>
+        <li>
+          <label for="tel" id="tel">연락처</label>
+          <input type="text" id="tel" name="tel">
+        </li>
+      </ul>
+    </fieldset>
+    <fieldset>
+      <legend><span class="bluetext">지원분야</span></legend>
+      <ul>
+        <li><label><input type="radio" name="giwon" value="웹퍼블리싱" checked>웹 퍼블리싱</label></li>
+        <li><label><input type="radio" name="giwon" value="웹애플리케이션개발">웹 애플리케이션 개발</label></li>
+        <li><label><input type="radio" name="giwon" value="개발환경개선">개발 환경 개선</label></li>
+      </ul>
+    </fieldset>
+    <fieldset>
+      <legend><span class="bluetext">지원 동기</span></legend>
+      <ul>
+        <li>
+          <textarea name="memo" id="memo" cols="60" rows="5" placeholder="지원 동기 간략히 써 주세요"></textarea>
+        </li>
+        <li>
+          <button type="submit">접수하기</button>
+          <button type="reset">다시쓰기</button>
+        </li>
+      </ul>
+    </fieldset>
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3단</title>
+  <!-- <link rel="stylesheet" href="css/3단.css"> -->
+   <style>
+    #container{
+      display: flex;
+      border: 1px solid #ccc;
+      flex-wrap: wrap;
+      width: 90%;
+      margin: 0 auto;
+      box-sizing: border-box;
+      justify-content: space-between;
+      gap: 3px;
+    }
+    header{
+      background: red;
+      width: 100%;
+    }
+    header h1{
+      display: flex;
+      justify-content: center;
+      align-content: center;
+    }
+    aside{
+      background: orange;
+      width: 30%;
+      border: 1px solid #aaa;
+      display: flex;
+      flex-wrap: wrap;
+      /* justify-content: space-around; */
+    }
+    aside h3{
+      width: 100%;
+    }
+    aside p{
+      width: 50%;
+      border: 1px solid #bbb;
+    }
+    section{
+      background: yellow;
+      width: 30%;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      border: 1px solid #aaa;
+      display: flex;
+    }
+    section h3{
+      width: 100%;
+    }
+    section p{
+      width: 45%;
+      border: 1px solid #bbb;
+    }
+    footer{
+      background: green;
+      width: 100%;
+    }
+   </style>
+</head>
+<body>
+  <div id="container">
+    <header>
+      <h1>사이트 제목</h1>
+    </header>
+    <aside id="left">
+      <h3>왼쪽 사이드 바</h3>
+      <p>광고1</p>
+      <p>광고2</p>
+    </aside>
+    <section>
+      <h3>본문</h3>
+      <p>내용 입력1</p>
+      <p>내용 입력2</p>
+    </section>
+    <aside id="right">
+      <h3>오른쪽 사이드 바</h3>
+      <p>광고1</p>
+      <p>광고2</p>
+    </aside>
+    <footer>
+      <h3>푸터</h3>
+      <p>저작권 정보, 연락처 등</p>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>계산기</title>
+</head>
+<body>
+  <h1>계산기</h1>
+  <form>
+    <ul>
+      <li>
+        <label for="num1">수1</label>
+        <input type="text" id="num1" name="num1">
+      </li>
+      <li>
+        <label for="num2">수2</label>
+        <input type="text" id="num2" name="num2">
+      </li>
+      <hr>
+      <li>
+        <label for="result">결과</label>
+        <input type="text" id="result" name="result">
+      </li>
+      <br>
+      <button type="button" id="plus">더하기</button>
+      <button type="button" id="subt">빼기</button>
+      <button type="button" id="divd">나누기</button>
+      <button type="button" id="multy">곱하기</button>
+      <button type="reset" id="reset">초기화</button>
+    </ul>
+  </form>
+  <script>
+    //문서객체 가져오기 (더하기)
+    let plusBtn = document.querySelector('#plus')
+    let su1 = document.querySelector('#num1')
+    let su2 = document.querySelector('#num2')
+    let result = document.querySelector('#result')
+
+
+
+    // //이번트 처리
+    // plusBtn.onclick = plusFunc;
+
+    // function plusFunc(){
+    //   //입력된 수 가져오기
+    //   let p_result = Number(su1.value) + Number(su2.value);
+    //   result.value = p_result;
+    // }
+
+    // function onclick(){
+    //   let minus = su1.value - su2.value;
+    //   result.value = minus;
+    // }
+
+
+
+    plusBtn.onclick = function(){
+      //입력된 수 가져오기
+      let p_result = Number(su1.value) + Number(su2.value);
+      result.value = p_result;
+    }
+    
+    //빼기
+    let subt = document.querySelector('#subt')
+
+    subt.onclick = function(){
+      let minus = su1.value - su2.value;
+      result.value = minus;
+    }
+    //나누기
+    let divd = document.querySelector('#divd')
+
+    divd.onclick = function(){
+      let divd = su1.value / su2.value;
+      result.value = divd;
+    }
+
+    //곱하기
+    multy.onclick = function(){
+      let multy = su1.value * su2.value;
+      result.value = multy;
+    }
+    //초기화
+  
+  </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>변수</title>
+</head>
+<body>
+  <h1>변수</h1>
+  <script>
+    //변수 : 데이터를 저장하는 기억공간 이름 number
+            // 데이터 : 프로그램 실행 중 변할 수 있는 값 ex(7)
+    //변수선언 : 기억공간을 잡아서 이름을 붙이는 것 let number = 7
+    //할당 : 변수(기억공간)에 값을 저장하는 것
+    //초기화 : 변수에 처음 값(초기값)을 할당하는 것 7
+ 
+    //선언문
+    //let : 재선언 불가, 사용권장
+    //var : 재선언 가능, = 오류의 가능성이 있어 요즘은 사용하지 않을 것을 권장
+    //사각형의 가로, 세로 값을 입력 받아서 너비를 구하세요
+    //너비 : 가로 * 세로
+    let width = prompt('가로 입력하세요');
+    let height = prompt('세로 입력하세요');
+    let result = width * height;
+    console.log('사각형의 너비 = ' + result);
+
+    //상수 : 변하지 않는 값 (PI, TAX 등)
+    //상수 선언 : 재선언 불가, 재할당 불가, 이름은 대문자로 선언
+    //const
+    //원의 반지름을 입력 받아서 원의 너비를 구하세요
+    //너비 : 반지름 * 반지름 * 원주률 (파이 3.14)
+    let radius = prompt('반지름 입력하세요');
+    const PI = 3.14;
+    result = radius * radius * PI;
+    console.log('원의 반지름 = ' + result);
+
+    let book = prompt('책의 가격을 입력하세요');
+    const TAX = 0.1;
+    result = book * TAX;
+    console.log('책의 세금 = ' + result + '원');
+    
+  </script>
+</body>
+</html>

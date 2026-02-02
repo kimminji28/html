@@ -1,0 +1,45 @@
+#container{
+  width: 600px;
+  margin: 0 auto;
+}
+.redhyang{
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  margin-bottom: 10px;
+}
+.redhyang img{
+  width: 200px;
+  height: 230px;
+}
+#salad{
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+#why{
+  border: 1px solid #ccc;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+table{
+  border-collapse: collapse;
+  margin: 0 auto;
+  width: 85%;
+  height: 135px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.f_left{
+  float: left;
+  margin-right: 20px;
+}
+.f_right{
+  float: right;
+  margin-left: 20px;
+}
+ol li{
+  line-height: 2;
+}
+

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>포지션</title>
+  <style>
+    body{
+      background: url(img/골든.jpg) pixed no-repeat center;
+      /* background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-position: center; */
+      background-size: 200px;
+      /* opacity: 0.5; */
+    }
+    div{
+      background-color: beige;
+      border: 1px solid #aaa;
+    }
+    #box1{
+      width: 300px;
+      height: 100px;
+      /* background: linear-gradient(to right,#e60707,#f58d06,#fffb17,#00a100,#00f
+      ,#c2a3e618,#920ab4 50%,rgb(216, 247, 79)); */
+      background: repeating-linear-gradient(to right,#000,#000 10%,#ff0 10%, #ff0 20%);
+    }
+    #bg_g{
+      width: 300px;
+      height: 200px;
+      margin: 10px 0;
+      /* background: radial-gradient(circle farthest-side at 10% 10%,#ff0,#0f0 30%,rgb(227, 182, 238)); */
+      background: repeating-radial-gradient(circle farthest-side at 50% 50%,#ff0,rgb(0, 0, 0) 10%,rgb(29, 61, 243) 10%,#0f0 20%);
+    }
+    #box2{
+      width: 300px;
+      height: 300px;
+      background-color: azure;
+      position: relative;
+      /* top: -50px;
+      left: 50px; */
+    }
+    .abs{
+      width: 50px;
+      height: 50px;
+      background-color: pink;
+      position: absolute;
+    }
+    #a1{
+      left: 0;
+      top: 0;
+    }
+    #a2{
+      right: 0;
+      top: 0;
+    }
+    #a3{
+      left: 0;
+      bottom: 0;
+    }
+    #a4{
+      right: 0;
+      bottom: 0;
+    }
+    #a5{
+      left: 125px;
+      top: 125px;
+      z-index: 10;
+    }
+    #box3{
+      width: 60px;
+      height: 60px;
+      right: 30px;
+      top: 30px;
+      position: fixed;
+      text-align: center;
+      font-size: 30px;
+      line-height: 60px;
+      border: none;
+      border-radius: 50%;
+      /* background-color: #fff; */
+    }
+    img{
+      width: 100px;
+      height: 100px;
+    }
+    .hidden{
+      /* visibility: hidden; */
+      /* display: none; */
+      opacity: 0.2;
+    }
+    img:hover{
+      opacity: 0.1;
+    }
+    .hidden:hover{
+      opacity: 1;
+    }
+    #z1{
+      background-color: aqua;
+      top: 120px;
+      left: 120px;
+      z-index: 20;
+    }
+    #z2{
+      background-color: blue;
+      top: 130px;
+      left: 130px;
+      z-index: 999;
+    }
+    #bg{
+      background: url(img/사과.jpg);
+      background-size: 200px 200px;
+      width: 200px;
+      height: 200px;
+      position: relative;
+    }
+    #bg h1{
+      position: absolute;
+      right: 10px;
+      bottom: -12px;
+      color: #fff;
+      text-shadow: 2px 2px 2px #000;
+    }
+  </style>
+</head>
+<body>
+  <div id="box1">box1</div>
+  <div id="bg_g">원형그라데이션</div>
+  <div id="box2">box2
+    <div id="a1" class="abs">a1</div>
+    <div id="a2" class="abs">a2</div>
+    <div id="a3" class="abs">a3</div>
+    <div id="a4" class="abs">a4</div>
+    <div id="a5" class="abs">a5</div>
+    <div id="z1" class="abs">z1</div>
+    <div id="z2" class="abs">z2</div>
+  </div>
+  <div id="box3">🙃</div>
+  <figure>
+    <img src="img/레드향.jpg" alt="레드향">
+    <img class="hidden" src="img/골든.jpg" alt="골든">
+    <img src="img/레드향.jpg" alt="레드향">
+  </figure>
+  <div id="bg">
+    <h1>김호두</h1>
+  </div>
+</body>
+</html>

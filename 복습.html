@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>복습</title>
+  <style>
+    table {
+      border: 1px solid;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>복습</h1>
+  <script>
+    // //1. 사용자에게 이름을 입력 받아서 변수에 저장하세요
+    // let name = prompt('이름을 입력하세요');
+    // //2. 사용자에게 점수를 입력 받아서 변수에 저장하세요
+    // let score = Number(prompt('점수를 입력하세요')); //문자열이면 밑에서 숫자로 인식을 안하니 숫자로 바꿔주기
+    // let 
+    // if(score >= 90){
+    //   document.write(`${score}점은 참잘했어요`);
+    // }else if(score >= 80){
+    //   document.write(`${score}점은 잘했어요`);
+    // }else{
+    //  ()`${score}점은 노력하세요`);
+    // }
+    // let 
+    // //3. 점수가 90점 이상이면 참잘했어요라고 출력하세요(문서)
+    // //   점수가 80점 이상이면 잘했어요라고 출력하세요(문서)
+    // //   점수가 70점 미만이면 노력하세요라고 출력하세요(문서)
+    // //4. 3번은 if문으로 작성, 4번은 3번을 switch문으로 작성
+    // switch(parseInt(score / 10)){ //
+    //   case 10 : document.write(`참잘했어요`);break;
+    //   case 9 : document.write(`참잘했어요`);break;
+    //   case 8 : document.write(`잘했어요`);break;
+    //   default : document.write(`노력하세요`)
+    // }
+    // //5. 점수가 홀수인지 짝수인지 구별해서 출력하세요(삼항연산자 이용)-콘솔창
+    // // score = Number(prompt('홀짝 구별하세요'));
+    // // 조건 ? true : false
+    // (score % 2 == 0) ? console.log('짝수') : console.log('홀수');
+
+    // // let result = score % 2 == 0 ? '짝수' : '홀수';
+    // // console.log(result);
+    // //6. 점수가 3의 배수인지 아닌지 구별해서 3의 배수이면 점수에 100을 더하고
+    // //  아니면 점수에 100을 빼주세요-알림창
+    // if(score % 3 == 0){
+    //   score += 100
+    //   alert(`${score}`)
+    // }else {
+    //   score -= 100
+    //   alert(`${score}`)
+    // }
+    // result = score % 3 == 0 ? score + 100 : score - 100;
+    // console.log(result);
+
+
+    //1에서 10 사이의 두 수를 입력 받아서 (prompt(), 저장변수)
+    //두 수 중 작은 수는 행<tr> (if / math.max), 큰 수는 열<td>로 하는 표 작성
+    //표<table>의 데이터는 행과 열을 곱한 값 (중첩for문)
+    //표는 문서에 출력(document.write())
+
+    let one = prompt('1부터 10 중 작은 값을 입력')
+    let two = prompt('1부터 10 중 큰 값을 입력')
+    let max; //큰값을 넣을 변수
+    let min; //작은값
+    if (one < two) {
+      min = one;
+      max = two
+    } else if (one == two) {
+      min = one
+      max = two
+    } else {
+      max = one
+      min = two
+    }
+    // max = Math.max(one, two);
+    // min = Math.min(one, two);
+
+    console.log(max);
+    console.log(min);
+
+    let layout = `<h3>asfafa</h3><table>`
+    for (let i = 1; i <= min; i++) {
+      layout += `<tr>`
+      for (let j = 1; j <= max; j++) {
+        layout += `<td>${i * j}</td>`
+      }
+      layout += `</tr>`
+    }
+    layout += `</table>`
+    document.write(layout)
+  </script>
+</body>
+
+</html>

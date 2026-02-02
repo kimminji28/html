@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>배경색</title>
+  <style>
+    #container{
+      width: 500px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    ul{
+      display: flex;
+      justify-content: space-between;
+      padding-left: 0;
+    }
+    ul li{
+      /* width: 130px; */
+      /* padding: 10px; */
+      border: 1px solid #ccc;
+      list-style: none;
+      margin: 5px;
+      text-align: center;
+    }
+    a{
+      text-decoration: none;
+      color: black;
+      width: 130px;
+      display: block;
+      margin: 5px;
+      padding: 5px;
+    }
+    #Bgcolor{
+      width: 500px;
+      height: 300px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+  <h1>배경색 지정</h1>
+  <ul>
+    <li><a href="#" onclick="changeBg('yellow')">yellow</a></li>
+    <li><a href="#" onclick="changeBg('pink')">pink</a></li>
+    <li><a href="#" onclick="changeBg('skyblue')">skyblue</a></li>
+  </ul>
+  <div id="Bgcolor"></div>
+  </div>
+  <script>
+    function changeBg(color){
+      let Bgcolor = document.querySelector('#Bgcolor');
+      Bgcolor.style.backgroundColor = color;
+    }
+    
+  </script>
+</body>
+</html>
