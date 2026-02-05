@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table border="2">
+      <tbody>
+        <tr>
+          <th>제목</th>
+          <td><input type="text" id="title" /></td>
+        </tr>
+        <tr>
+          <th>작성자</th>
+          <td><input type="text" id="writer" /></td>
+        </tr>
+        <tr>
+          <th>내용</th>
+          <td><textarea id="content"></textarea></td>
+        </tr>
+        <tr>
+          <td colspan="2" align="center">
+            <button onclick="insertBoard()">등록</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- <form action="", method="post" enctype="application/x-www-form-urlencoded"></form> -->
+
+    <div id="boardList">
+      <table border="1">
+        <thead>
+          <tr>
+            <th>글번호</th>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>삭제</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <script src="./sample.js"></script>
+
+    <script>
+      // const json = [{"BOARD_NO":2,"TITLE":"2번","WRITER":"user02","CONTENT":"2번","CREATED_AT":"2026-02-04T03:30:51.000Z","CLICK_CNT":2},{"BOARD_NO":3,"TITLE":"test03","WRITER":"user03","CONTENT":"집가고싶다","CREATED_AT":"2026-02-04T03:36:59.000Z","CLICK_CNT":0},{"BOARD_NO":4,"TITLE":"글등록연습","WRITER":"user01","CONTENT":"sql연습중","CREATED_AT":"2026-02-04T05:42:44.000Z","CLICK_CNT":0},{"BOARD_NO":5,"TITLE":"바인드","WRITER":"user04","CONTENT":"바인드입력","CREATED_AT":"2026-02-04T06:07:04.000Z","CLICK_CNT":0},{"BOARD_NO":6,"TITLE":"바인드6","WRITER":"user06","CONTENT":"바인드입력6","CREATED_AT":"2026-02-04T06:10:09.000Z","CLICK_CNT":0},{"BOARD_NO":7,"TITLE":"클릭자동확인","WRITER":"user11","CONTENT":"테스트","CREATED_AT":"2026-02-05T01:27:56.000Z","CLICK_CNT":null}]
+      // const ary = JSON.parse(json);
+      // console.log(ary);
+
+      fetch("http://localhost:3000/board") //get방식
+        .then((resp) => resp.json())
+        .then((data) => {
+          // console.log(data)
+          data.forEach((ele) => {
+            // console.log(ele); //꼭확인하기 26.02.05
+            const tr = makeRow(ele);
+            document.querySelector("#boardList tbody").appendChild(tr);
+          });
+        });
+
+      function insertBoard() {
+        fetch("http://localhost:3000/board_insert", {
+          method: "post",
+          headers: { "content-Type": "application/json" },
+          body: JSON.stringify({
+            title: document.querySelector("#title").value,
+            content: document.querySelector("#content").value,
+            writer: document.querySelector("#writer").value,
+          }),
+        })
+          .then((resp) => resp.json())
+          .then((data) => {
+            if (data.retCode == "OK") {
+              let tr = makeRow(data);
+              document.querySelector("#boardList tbody").appendChild(tr);
+            } else {
+              alert("등록중 예외.");
+            }
+          })
+          .catch((err) => console.log(err));
+      } //end of insertBoard.
+    </script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script>
+      // Ajax(Asynchronous Javascript And Xml)비동기?(순차코드=동기방식)
+      fetch("http://192.168.0.9:3000/students/all") // json문자열.
+        .then((resp) => resp.json()) //json 문자열 => js 객체타입으로 변환.
+        .then((data) => {
+          console.log(data);
+          const ulDom = document.createElement("ul"); //<ul></ul>
+          for (let student of data) {
+            const area = student.TEL.substr(0, student.TEL.indexOf(")"));
+            const liDom = document.createElement("li");
+            liDom.innerHTML = `${student.STUDNO}, ${student.NAME}, ${area}`;
+            ulDom.appendChild(liDom);
+            console.log(student.TEL.indexOf(")"));
+          }
+          document.querySelector("#container").appendChild(ulDom);
+        })
+        .catch(console.log);
+
+      // const ary = [{ studno: 1101, name: "홍길동", score: 80 }];
+      // const ulDom = document.createElement("ul"); //<ul></ul> => ul이라는 dom 객체를 만들겠다.
+      // ulDom.innerHTML = "Hello"; //<ul>Hello</ul>
+      // const liDom = document.createElement("li");
+      // liDom.innerHTML = "Apple";
+      // ulDom.appendChild(liDom); //<ul>Hello<li>Apple</li></ul>
+      // console.log(ulDom);
+    </script>
+  </body>
+</html>
