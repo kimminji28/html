@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="2">
+        <tbody>
+            <tr>
+                <th>제목</th>
+                <td><input type="text" id="tilte"></td>
+            </tr>
+            <tr>
+                <th>작성자</th>
+                <td><input type="text" id="writer"></td>
+            </tr>
+            <tr>
+                <th>내용</th>
+                <td><textarea id="content"></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <button onclick="insertBoard()">등록</button>
+                </td> 
+            </tr>
+            <!-- insertBoard : 누르면 인서트를 할 수 있게 만듦 -->
+        </tbody>
+        </table>
+
+        <div id="boardList">
+        <table>
+        <thead>
+            <tr>
+                <th>글번호</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>삭제</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+        </table>
+    </div>
+    <script src="./test33333.js"></script>
+    <script>
+        fetch("http://localhost:3000/board_insert")
+            .then((resp) => resp.json())
+            .then((data) => {
+                //data가 배열인지 아닌지 어디서 확인 가능한지 모름
+                data.Foreach((ele) => {
+                    const tr = makeRow(ele);
+                    // 1개의 게시글을 1개의 tr로 만들어줌
+                    document.querySelector("#boardList tbody").appendChild(tr);
+                })
+            })
+
+            function insertBoard() {
+                fetch("http://localhost:3000/board_insert", {
+                method: 'post',
+                headers: {"content-Type": "application/json"}, 
+                // 데이터 형식이 문자열임을 서버에 전달
+                body: JSON.stringify({
+                    // 객체를 json 문자열로 변환
+                    title: document.querySelector('#title').value,
+                    content: document.querySelector('#content').value,
+                    writer: document.querySelector('#writer').value,
+                })
+                .then((resp) => resp.json())
+                .then((data) => {
+                    if(data.retCode == 'OK'){
+                        let tr = makeRow(data);
+                        document.querySelector("#boardList tbody").appendChild(tr);
+                    }else{
+                        alert('등록중 예외');
+                    }
+                })
+            .catch((err) => console.log(err));
+        )}
+    </script>
+</body>
+</html>
