@@ -1,101 +1,95 @@
 const express = require("express");
 const { getConnection, oracledb } = require("./db");
-const app = express(); // 익스프레스 모듈을 활용 실체
 const cors = require("cors");
+const OracleDB = require("oracledb");
+const app = express(); // 익스프레스 모듈을 활용 실체 기능.
+app.use(express.static(__dirname));
 
-//셋업 추가 cors
-app.use(cors()); //CORS 요청 처리
+// 셋업 추가. CORS
+app.use(cors()); // CORS 요청 처리.
 app.use(express.json()); //body 영역에 json 처리.
 
-//url -> 실행가능 라우팅
+// url 정보 -> 실행기능. 라우팅.
 app.get("/", (req, res) => {
   res.send("OK");
 });
-
-//글목록 조회
+// 글목록 조회.
 app.get("/board", async (req, res) => {
   const conn = await getConnection();
   const { metaData, rows } = await conn.execute(
     `SELECT * FROM board ORDER BY 1`,
   );
-  const json = JSON.stringify(rows); // 객체인 rows를 json 문자열로 변환
-  res.send(json); // 응답처리
+  const json = JSON.stringify(rows); // 객체 -> json 문자열.
+  res.json(rows);
+  // res.send(json); // 응답처리.
 });
-
-//글삭제
+// 글삭제.
 app.get("/board_delete/:bno", async (req, res) => {
-  console.log(req.params.bno);
+  console.log(req.params.bno); // req.params 속성.
   const conn = await getConnection();
   const result = await conn.execute(
     `DELETE FROM board WHERE board_no = :bno`,
     { bno: req.params.bno },
     { autoCommit: true },
   );
-  //정상삭제되면 ok , 삭제못하면 NG
+  console.log(result.outBinds.bno[0]);
+
+  // 정상 삭제되면 OK, 삭제 못하면 NG
   if (result.rowsAffected) {
-    res.json({ retCode: "OK" });
+    res.json({ retCode: "OK" }); // {"retCode": "OK" }
   } else {
     res.json({ retCode: "NG" });
   }
-  res.send(result); // 응답처리
+  // const json = JSON.stringify(rows); // 객체 -> json 문자열.
+  res.send(result); // 응답처리.
 });
-//test
 
-app.listen(3000, () => {
-  console.log("http://localhost:3000");
-}); //서버실행
-
-//수정.
+// 수정.
 app.get("/board_update/:bno/:title/:content", async (req, res) => {
-  console.log(req.params);
+  console.log(req.params); // req.params 속성.
   const conn = await getConnection();
   const result = await conn.execute(
-    `update board_no
-        set title = :title
-            ,content = :content
-     where board_no = :bno`,
+    `update board
+      set title = :title
+        , content = :content
+    where board_no = :bno`,
     {
-      //bno : {dir:oracledb.BINDd+OUT, typr: oracle.NUMBER}
       bno: req.params.bno,
       title: req.params.title,
       content: req.params.content,
     },
     { autoCommit: true },
   );
-  // //정상삭제되면 ok , 삭제못하면 NG
+  // 정상 삭제되면 OK, 삭제 못하면 NG
   if (result.rowsAffected) {
-    res.json({ retCode: "OK" });
+    res.json({ retCode: "OK" }); // {"retCode": "OK" }
   } else {
     res.json({ retCode: "NG" });
   }
-  res.send(result); // 응답처리
+  // const json = JSON.stringify(rows); // 객체 -> json 문자열.
+  res.send(result); // 응답처리.
 });
-//test
 
-app.listen(3000, () => {
-  console.log("http://localhost:3000");
-}); //서버실행
-
-//등록.
+// 등록.
 app.post("/board_insert", async (req, res) => {
-  console.log(req.body); //req.params 속성
+  console.log(req.body); // req.params 속성.
   const { title, content, writer } = req.body;
   const conn = await getConnection();
   const result = await conn.execute(
-    `insert into board (board_no, title, writer,  content)
-      values((SELECT nvl(max(board_no),0)+1 from board), :title, :writer, :content)
-    returning board_no into :bno `,
+    `insert into board(board_no, title, writer, content)
+     values((select nvl(max(board_no),0)+1 from board),:title,:writer,:content)
+     returning board_no into :bno`,
     {
       bno: { dir: oracledb.BIND_OUT, type: oracledb.NUMBER },
       title,
-      writer,
       content,
+      writer,
     },
     { autoCommit: true },
   );
-  console.log(result.outBinds.bno[0]); //outbinds의 요소(글번호)를 cmd에서 확인 가능
 
-  // //정상삭제되면 ok , 삭제못하면 NG
+  console.log(result.outBinds.bno[0]);
+  // 정상 삭제되면 OK, 삭제 못하면 NG
   if (result.rowsAffected) {
     res.json({
       retCode: "OK",
@@ -103,13 +97,5 @@ app.post("/board_insert", async (req, res) => {
       TITLE: title,
       WRITER: writer,
       CONTENT: content,
-    }); // {"retCode":"OK"}
-  } else {
-    res.json({ retCode: "NG" });
-  }
-});
-//test
-
-app.listen(3000, () => {
-  console.log("http://localhost:3000");
-}); //서버실행
+    }); // {"retCode": "OK" }
+... (10줄 남음)
